@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
 import { UserCard } from '../components/usercard';
 import { UserModal } from '../components/UserModal';
+import { useUserStore } from '../data/UserStore';
 
 export default function Servicios({ servicios }) {
   const [servicioSeleccionado, setServicioSeleccionado] = useState('');
   const [usuariosFiltrados, setUsuariosFiltrados] = useState([]);
+  const setUsuarioSeleccionado = useUserStore(state => state.setUsuarioSeleccionado);
 
   const handleBuscar = () => {
-    // Filtra los usuarios que coincidan con el servicio seleccionado
     const filtrados = servicios.filter(
       (servicio) => servicio.company.title === servicioSeleccionado
     );
     setUsuariosFiltrados(filtrados);
   };
 
-const titulosUnicos = [
+  const titulosUnicos = [
     ...new Set(
       (Array.isArray(servicios) ? servicios : []).map(
         (servicio) => servicio.company.title
       )
     ),
   ];
+
   return (
     <div>
       <h2 align="center">BUSCA MEDIANTE LOS SERVICIOS DISPONIBLES</h2>
+
       <div className="servicios-barra">
         <select
           className="servicios-select"
@@ -43,23 +46,23 @@ const titulosUnicos = [
           BUSCAR
         </button>
       </div>
-     {usuariosFiltrados.length > 0 && (
-  <div className="usuarios-grid">
-    {usuariosFiltrados.map((usuario) => (
-      <div className="usuario-card" key={usuario.id}>
-        <img src={usuario.image} alt={`${usuario.firstName} ${usuario.lastName}`} className="usuario-img" />
-        <h3>{usuario.firstName} {usuario.lastName}</h3>
-        <p className="usuario-desc">{usuario.email}</p>
-        <p className='usuario-telefono'>{usuario.phone || 'Sin teléfono'}</p>
-        <p className="usuario-email">Aqui se muestra una breve descripcion de los servicios que ofrece el usuario. Puedes incluir detalles como su experiencia, especialidades o cualquier otra información relevante.</p>
-        <div className="usuario-extra">
-          <span>Valoración: {(Math.random() * 4 + 1).toFixed(1)}/5⭐</span>
-          <span>Likes: {usuario.bank?.cardNumber?.slice(-2) || Math.floor(Math.random()*100)}</span>
+
+      {usuariosFiltrados.length > 0 && (
+        <div className="usuarios-grid">
+          {usuariosFiltrados.map((usuario) => (
+            <div
+              key={usuario.id}
+              onClick={() => setUsuarioSeleccionado(usuario)}
+              style={{ cursor: 'pointer' }}
+            >
+              <UserCard usuario={usuario} />
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
       )}
+
+      {/* Modal que se abre al hacer clic en una tarjeta */}
+      <UserModal />
     </div>
   );
 }
