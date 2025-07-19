@@ -1,11 +1,11 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Inicio from './pages/Home';
-import Servicios from './pages/Servicios';
 import FormularioContacto from './pages/Contacto';
 import GaleriaPortafolio from './pages/Portafolio';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ServiciosContainer from './components/ServiciosContainer';
+import React from 'react';
 export default function App() {
   return (
     <Router>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { UserCard } from '../components/usercard';
+import { UserModal } from '../components/UserModal';
 
 export default function Servicios({ servicios }) {
   const [servicioSeleccionado, setServicioSeleccionado] = useState('');
