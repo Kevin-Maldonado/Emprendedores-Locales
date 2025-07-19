@@ -19,14 +19,6 @@ body, html, #root {
   min-height: 100vh;
   box-sizing: border-box;
 }
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   display: flex;
@@ -58,24 +50,31 @@ body {
     background-color: #f9f9f9;
   }
 }
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  background-color: #242424;
-  
-}
 .menu {
   display: flex;
   justify-content: flex-start; 
   gap: 10px;
   padding: 10px;
-  margin: 0 auto;
   background-color: #6e6e6e;
+  width: 100%;
 }
-.menu button {
+.menu li {
+  flex: 1;
+}
+.menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.menu a {
+  display: flex;
+  justify-content: center;
   border-radius: 30px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -85,14 +84,20 @@ nav {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 100%;
   color: white;
+  text-decoration: none;
+  flex: 1; 
+  width: auto;
+  text-align: center;
+  min-width: 120px;
 }
-.menu button:hover {
+
+.menu a:hover {
   border-color: #646cff;
 }
-.menu button:focus,
-.menu button:focus-visible {
+
+.menu a:focus,
+.menu a:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 footer {
@@ -101,3 +106,159 @@ footer {
    padding: 1rem; 
    background-color: #222; 
    color: #fff; }
+h1.home {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+p.home {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+strong.home {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.servicios-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 1em 1.5em;
+  font-size: 1.2em;
+  border-radius: 12px;
+  border: 2px solid #646cff;
+  background: #f5f6fa;
+  color: #222;
+  margin: 1.5em auto 2em auto;
+  display: block;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.08);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.servicios-select:focus {
+  border-color: #535bf2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.15);
+}
+.boton-verde {
+  display: inline-block;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1.75em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #27ae60;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.boton-verde:hover {
+  border-color: #219150;
+  background-color: #219150;
+}
+.servicios-barra {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.servicios-select {
+  flex: 1;
+  min-width: 200px;
+}
+.usuarios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.usuario-card {
+  background: #2d2d2d;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(100,108,255,0.08);
+  padding: 1.5em 1em;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.usuario-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1em;
+  border: 3px solid #646cff;
+}
+
+.usuario-email {
+  font-size: 0.95em;
+  color: #bdbdbd;
+  margin-bottom: 0.5em;
+}
+
+.usuario-desc {
+  font-size: 1em;
+  margin-bottom: 1pem;
+  color: #a0e7a0;
+  text-align: center;
+}
+
+.usuario-extra {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+  gap: 10px;
+}
+.usuario-telefono {
+  font-size: 0.95em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.usuarios-grid-4x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 2em;
+  justify-items: center;
+}
+.usuarios-ocupacion {
+  font-weight: 500;
+  font-size: 0.95em;
+  color: #ffffff;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+.boton-verde-pequeno {
+  display: inline-block;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  padding: 0.3em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #27ae60;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.boton-verde-pequeno:hover {
+  border-color: #219150;
+  background-color: #219150;
+}
